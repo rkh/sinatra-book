@@ -106,11 +106,11 @@ a POST, but Sinatra will interpret it as the desired method. For example:
       <div><button type="submit">Destroy it</button></div>
     </form>
 
-Then, include the Rack::MethodOverride middleware into your app:
+Then, enable method overriding for your app:
 
     require 'sinatra'
     
-    use Rack::MethodOverride
+    enable :method_override
     
     delete '/destroy_it' do
       # destroy it
@@ -121,7 +121,7 @@ Or, if you are subclassing Sinatra::Base, do it like this:
     require 'sinatra/base'
     
     class MyApp < Sinatra::Base
-      use Rack::MethodOverride
+      enable :method_override
       
       delete '/destroy_it' do
         # destroy it
